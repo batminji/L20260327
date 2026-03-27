@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Actor.h"
+#include "Engine.h"
 
 AActor::AActor(const FVector2D& InLocation, const char InMesh, const int InZOrder)
 	: Location(InLocation), Mesh(InMesh), ZOrder(InZOrder)
@@ -20,10 +21,7 @@ void AActor::Tick()
 
 void AActor::Render()
 {
-	COORD Coordinate = { Location.X * 2, Location.Y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate);
-
-	std::cout << Mesh << " ";
+	GEngine->Render(Location, Mesh);
 }
 
 void AActor::SetActorLocation(const FVector2D& NewLocation)

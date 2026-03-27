@@ -96,10 +96,14 @@ void UWorld::Tick()
 
 void UWorld::Render()
 {
+	GEngine->Clear();
+
 	for (auto Actor : Actors)
 	{
 		Actor->Render();
 	}
+
+	GEngine->Flip();
 }
 
 void UWorld::SaveActors(std::vector<std::string>& MapBuffer)
