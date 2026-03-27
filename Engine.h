@@ -6,17 +6,13 @@ class UEngine
 {
 protected:
 	UEngine();
-	static UEngine* Instance;
 
 public:
 	static int KeyCode;
 
 	inline static UEngine* GetInstance()
 	{
-		if (Instance == nullptr)
-		{
-			Instance = new UEngine();
-		}
+		static UEngine* Instance = new UEngine();
 		return Instance;
 	}
 
