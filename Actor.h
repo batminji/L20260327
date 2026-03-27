@@ -19,6 +19,7 @@ public:
 
 protected:
 	FVector2D Location;
+	int ZOrder;
 	char Mesh;
 };
 
