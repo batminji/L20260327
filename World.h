@@ -10,7 +10,8 @@ public:
 	UWorld();
 	virtual ~UWorld();
 
-	void Load(std::string MapName);
+	void Load(const std::string MapName);
+
 	template<typename ClassName>
 	AActor* SpawnActor()
 	{

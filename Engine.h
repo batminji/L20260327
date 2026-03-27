@@ -20,7 +20,7 @@ public:
 		return Instance;
 	}
 
-	inline UWorld* GetWorld()
+	inline UWorld* GetWorld() const
 	{
 		return World;
 	}

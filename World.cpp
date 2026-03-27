@@ -22,7 +22,7 @@ UWorld::~UWorld()
 	Actors.clear();
 }
 
-void UWorld::Load(std::string MapName)
+void UWorld::Load(const std::string MapName)
 {
 	std::ifstream MapStream(MapName);
 
