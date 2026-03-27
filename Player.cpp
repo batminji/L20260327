@@ -37,4 +37,5 @@ void APlayer::Move()
 	default:
 		break;
 	}
+	UEngine::KeyCode = 0;
 }

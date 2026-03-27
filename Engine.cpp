@@ -81,14 +81,17 @@ void UEngine::TermBuffer()
 
 void UEngine::Input()
 {
-	KeyCode = _getch();
-	if (KeyCode == 'f')
+	if (_kbhit())
 	{
-		GEngine->GetWorld()->Save("SaveLevel.txt");
-	}
-	if (KeyCode == 'q')
-	{
-		bIsRunning = false;
+		KeyCode = _getch();
+		if (KeyCode == 'f')
+		{
+			GEngine->GetWorld()->Save("SaveLevel.txt");
+		}
+		if (KeyCode == 'q')
+		{
+			bIsRunning = false;
+		}
 	}
 }
 
