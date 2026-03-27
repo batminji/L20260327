@@ -5,3 +5,9 @@
 #include <conio.h>
 #include <fstream>
 #include <Windows.h>
+
+struct FVector2D
+{
+	int X;
+	int Y;
+};
