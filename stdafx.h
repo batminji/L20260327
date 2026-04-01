@@ -6,6 +6,7 @@
 #include <fstream>
 #include <Windows.h>
 #include <algorithm>
+#include <random>
 
 // SDL
 #include "SDL.h"
