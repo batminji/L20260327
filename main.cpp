@@ -8,6 +8,35 @@
 
 int SDL_main(int argc, char* argv[])
 {
+	// Initialize
+	SDL_Init(SDL_INIT_EVERYTHING);			// `SDL_INIT_EVERYTHING`: all of the above subsystems
+	// Create Window
+	SDL_Window* Window = SDL_CreateWindow("SDL Engine", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+
+	bool bIsRunning = true;
+
+	// Running
+	while (bIsRunning)
+	{
+		// Event Polling
+		SDL_Event Event;
+		SDL_PollEvent(&Event);
+
+		switch (Event.type)
+		{
+		case SDL_QUIT:
+			bIsRunning = false;
+			break;
+		default:
+			break;
+		}
+	}
+
+	// Destroy Window
+	SDL_DestroyWindow(Window);
+
+	// Quit (Terminate)
+	SDL_Quit();
 	return 0;
 }
 
