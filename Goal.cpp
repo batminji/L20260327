@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "Goal.h"
 
-AGoal::AGoal(const FVector2D& InLocation, const char InMesh, const int InZOrder)
+AGoal::AGoal(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB, const char InMesh, const int InZOrder)
 {
 	Location = InLocation;
 	Mesh = InMesh;
 	ZOrder = InZOrder;
+	ColorR = InColorR;
+	ColorG = InColorG;
+	ColorB = InColorB;
 }
 
 AGoal::~AGoal()

@@ -3,7 +3,7 @@
 class AActor
 {
 public:
-	AActor(const FVector2D& InLocation = { 0, 0 }, const char InMesh = ' ', const int InZorder = 0);
+	AActor(const FVector2D& InLocation = { 0, 0 }, int InColorR = 0, int InColorG = 0, int InColorB = 0, const char InMesh = ' ', const int InZorder = 0);
 	virtual ~AActor();
 
 	virtual void BeginPlay();
@@ -24,6 +24,10 @@ public:
 
 protected:
 	FVector2D Location;
+	int ColorR;
+	int ColorG;
+	int ColorB;
+
 	int ZOrder;
 	char Mesh;
 };

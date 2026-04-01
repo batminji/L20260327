@@ -33,6 +33,7 @@ public:
 	void InitBuffer();
 	void Clear();
 	void Render(const FVector2D& InLocation, const char InMesh);
+	void Render(const FVector2D& InLocation, int R, int G, int B);
 	void Flip();
 	void TermBuffer();
 

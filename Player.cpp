@@ -2,11 +2,14 @@
 #include "Player.h"
 #include "Engine.h"
 
-APlayer::APlayer(const FVector2D& InLocation, char InMesh, const int InZOrder)
+APlayer::APlayer(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB, char InMesh, const int InZOrder)
 {
 	Location = InLocation;
 	Mesh = InMesh;
 	ZOrder = InZOrder;
+	ColorR = InColorR;
+	ColorG = InColorG;
+	ColorB = InColorB;
 }
 
 APlayer::~APlayer()

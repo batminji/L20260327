@@ -77,6 +77,17 @@ void UEngine::Render(const FVector2D& InLocation, const char InMesh)
 	WriteFile(ScreenBufferHandle[ActiveScreenBufferIndex], MeshString, 1, NULL, NULL);
 }
 
+void UEngine::Render(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB)
+{
+	int TileSize = 50;
+
+	SDL_SetRenderDrawColor(Renderer, InColorR, InColorG, InColorB, 255);
+	SDL_RenderDrawPoint(Renderer, InLocation.X, InLocation.Y);
+
+	SDL_Rect Rect = { InLocation.X * TileSize, InLocation.Y * TileSize, TileSize, TileSize };
+	SDL_RenderFillRect(Renderer, &Rect);
+}
+
 void UEngine::Flip()
 {
 	SetConsoleActiveScreenBuffer(ScreenBufferHandle[ActiveScreenBufferIndex]);
