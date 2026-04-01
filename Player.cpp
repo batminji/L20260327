@@ -38,6 +38,9 @@ void APlayer::Tick()
 		case SDLK_d:
 			AddActorLocalOffset({ 1, 0 });
 			break;
+		case SDLK_ESCAPE:
+			GEngine->Stop();
+			break;
 		default:
 			break;
 		}

@@ -25,6 +25,7 @@ public:
 	void Init();
 	void Terminate();
 	void Run();
+	void Stop();
 
 	HANDLE ScreenBufferHandle[2];
 	int ActiveScreenBufferIndex = 0;

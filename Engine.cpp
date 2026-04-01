@@ -48,6 +48,11 @@ void UEngine::Run()
 	}
 }
 
+void UEngine::Stop()
+{
+	bIsRunning = false;
+}
+
 void UEngine::InitBuffer()
 {
 	ScreenBufferHandle[0] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
@@ -108,6 +113,9 @@ void UEngine::Tick()
 	switch (Event.type)
 	{
 	case SDL_QUIT:
+		bIsRunning = false;
+		break;
+	case SDLK_ESCAPE:
 		bIsRunning = false;
 		break;
 	default:
