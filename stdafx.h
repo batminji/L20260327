@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include <algorithm>
 #include <random>
+#include <cmath>
 
 // SDL
 #include "SDL.h"
