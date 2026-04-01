@@ -16,7 +16,7 @@ void UEngine::Init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
 	Window = SDL_CreateWindow("SDL Engine", WINDOWX, WINDOWY, WINDOWW, WINDOWH, SDL_WINDOW_SHOWN);
-	Renderer = SDL_CreateRenderer(Window, -1, 0);
+	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	State = SDL_GetKeyboardState(NULL);
 
 	bIsRunning = true;
@@ -39,13 +39,25 @@ void UEngine::Terminate()
 
 void UEngine::Run()
 {
+	LastTime = SDL_GetTicks();
+
 	while (bIsRunning)
 	{
+		CurrentTime = SDL_GetTicks();
+		DeltaSeconds = (CurrentTime - LastTime) / 1000.0f;
+		LastTime = CurrentTime;
+
 		SDL_PollEvent(&Event);
 
 		Input();
 		Tick();
 		Render();
+
+		FrameTime = SDL_GetTicks() - CurrentTime;
+		if (FrameDelay > FrameTime) 
+		{
+			SDL_Delay(FrameDelay - FrameTime);
+		}
 	}
 }
 

@@ -46,6 +46,10 @@ public:
 	{
 		return State;
 	}
+	inline const float& GetDeltaSeconds()
+	{
+		return DeltaSeconds;
+	}
 
 protected:
 	void Input();
@@ -61,6 +65,15 @@ protected:
 	SDL_Renderer* Renderer;
 	SDL_Event Event;
 	const Uint8* State;
+
+	// FPS
+	const int FPS = 60;
+	const int FrameDelay = 1000 / FPS;
+
+	Uint32 CurrentTime;
+	Uint32 LastTime;
+	int FrameTime;
+	float DeltaSeconds;
 };
 
 #define GEngine		UEngine::GetInstance()
