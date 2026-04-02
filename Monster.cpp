@@ -9,6 +9,8 @@ AMonster::AMonster(const FVector2D& InLocation, int InColorR, int InColorG, int 
 	ColorR = InColorR;
 	ColorG = InColorG;
 	ColorB = InColorB;
+
+	Load("Data/monster.bmp", 255, 255, 255, {0, 0}, {64, 64});
 }
 
 AMonster::~AMonster()

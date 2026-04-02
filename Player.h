@@ -7,5 +7,9 @@ public:
 	virtual ~APlayer();
 
 	virtual void Tick() override;
+
+protected:
+	int Direction = 3;
+	int Frame = 0;
 };
 

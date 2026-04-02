@@ -32,6 +32,9 @@ void UWorld::Load(const std::string MapName)
 		return;
 	}
 
+	int MaxX = -1;
+	int MaxY = -1;
+
 	int Y = 0;
 	while (!MapStream.eof())
 	{
@@ -59,9 +62,19 @@ void UWorld::Load(const std::string MapName)
 			default:
 				break;
 			}
+
+			if (MaxX < X + 1)
+			{
+				MaxX = X + 1;
+			}
 		}
 		Y++;
 	}
+
+	MaxY = Y;
+
+	// Window Size 동적으로 변경
+	SDL_SetWindowSize(GEngine->GetWindow(), MaxX * 50, MaxY * 50);
 
 	MapStream.close();
 

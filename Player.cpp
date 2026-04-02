@@ -10,6 +10,9 @@ APlayer::APlayer(const FVector2D& InLocation, int InColorR, int InColorG, int In
 	ColorR = InColorR;
 	ColorG = InColorG;
 	ColorB = InColorB;
+
+	Load("Data/player.bmp", 255, 0, 255, {0, 0}, {50, 50});
+
 }
 
 APlayer::~APlayer()
@@ -30,18 +33,22 @@ void APlayer::Tick()
 		if (State[SDL_SCANCODE_UP] || State[SDL_SCANCODE_W])
 		{
 			Offset.Y--;
+			Direction = 2;
 		}
 		if (State[SDL_SCANCODE_DOWN] || State[SDL_SCANCODE_S])
 		{
 			Offset.Y++;
+			Direction = 3;
 		}
 		if (State[SDL_SCANCODE_LEFT] || State[SDL_SCANCODE_A])
 		{
 			Offset.X--;
+			Direction = 0;
 		}
 		if (State[SDL_SCANCODE_RIGHT] || State[SDL_SCANCODE_D])
 		{
 			Offset.X++;
+			Direction = 1;
 		}
 	}
 
@@ -49,4 +56,7 @@ void APlayer::Tick()
 	{
 		AddActorLocalOffset(Offset);
 	}
+
+	Frame = ++Frame % 50;
+	TextureLocation = { Frame / 10, Direction };
 }

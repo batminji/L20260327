@@ -9,6 +9,8 @@ AGoal::AGoal(const FVector2D& InLocation, int InColorR, int InColorG, int InColo
 	ColorR = InColorR;
 	ColorG = InColorG;
 	ColorB = InColorB;
+
+	Load("Data/goal.bmp", 255, 255, 255, { 0, 0 }, {64, 64});
 }
 
 AGoal::~AGoal()

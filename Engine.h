@@ -32,8 +32,12 @@ public:
 
 	void InitBuffer();
 	void Clear();
+
 	void Render(const FVector2D& InLocation, const char InMesh);
 	void Render(const FVector2D& InLocation, int R, int G, int B);
+
+	void Render(const FVector2D& InLocation, SDL_Texture* InTexture, FVector2D& InTextureLocation, FVector2D& InTextureSize);
+
 	void Flip();
 	void TermBuffer();
 
@@ -50,6 +54,16 @@ public:
 	inline const float GetDeltaSeconds() const
 	{
 		return DeltaSeconds;
+	}
+
+	inline SDL_Renderer* GetRenderer() const
+	{
+		return Renderer;
+	}
+
+	inline SDL_Window* GetWindow() const
+	{
+		return Window;
 	}
 
 protected:

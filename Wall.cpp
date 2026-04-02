@@ -9,6 +9,8 @@ AWall::AWall(const FVector2D& InLocation, int InColorR, int InColorG, int InColo
 	ColorR = InColorR;
 	ColorG = InColorG;
 	ColorB = InColorB;
+
+	Load("Data/wall.bmp", 255, 0, 255, {0, 0}, {64, 64});
 }
 
 AWall::~AWall()
