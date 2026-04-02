@@ -1,6 +1,7 @@
 #pragma once
 
 class UWorld;
+class UResourceManager;
 
 class UEngine
 {
@@ -66,6 +67,11 @@ public:
 		return Window;
 	}
 
+	inline UResourceManager* GetResourceManager() const
+	{
+		return ResourceManager;
+	}
+
 protected:
 	void Input();
 	void Tick();
@@ -83,6 +89,8 @@ protected:
 
 	Uint32 LastTime;
 	float DeltaSeconds;
+
+	UResourceManager* ResourceManager;
 };
 
 #define GEngine		UEngine::GetInstance()

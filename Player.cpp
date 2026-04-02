@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "Engine.h"
+#include "ResourceManager.h"
+#include "GameplayStatics.h"
 
 APlayer::APlayer(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB, char InMesh, const int InZOrder)
 {
@@ -11,8 +13,10 @@ APlayer::APlayer(const FVector2D& InLocation, int InColorR, int InColorG, int In
 	ColorG = InColorG;
 	ColorB = InColorB;
 
-	Load("Data/player.bmp", 255, 0, 255, {0, 0}, {50, 50});
+	MyResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
 
+	TextureLocation = { 0, 0 };
+	TextureSize = { MyResource->Image->w / 5, MyResource->Image->h / 5 };
 }
 
 APlayer::~APlayer()
@@ -57,12 +61,12 @@ void APlayer::Tick()
 		AddActorLocalOffset(Offset);
 	}
 
-	DeltaSeconds += GEngine->GetDeltaSeconds();
+	DeltaSeconds += UGameplayStatics::GetWorldDeltaSeconds();
 	if (DeltaSeconds >= 0.1f)
 	{
 		SpriteIndex = ++SpriteIndex % 5;
 		DeltaSeconds = 0.0f;
 	}
 
-	TextureLocation = { SpriteIndex, Direction};
+	TextureLocation = { SpriteIndex, Direction };
 }

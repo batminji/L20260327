@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Engine.h"
+#include "ResourceManager.h"
 #include "World.h"
 
 UEngine::UEngine()
@@ -20,6 +21,8 @@ void UEngine::Init()
 
 	State = SDL_GetKeyboardState(NULL);
 
+	ResourceManager = new UResourceManager();
+
 	bIsRunning = true;
 	World = new UWorld();
 
@@ -34,6 +37,9 @@ void UEngine::Terminate()
 
 	delete World;
 	World = nullptr;
+
+	delete ResourceManager;
+	ResourceManager = nullptr;
 
 	TermBuffer();
 }

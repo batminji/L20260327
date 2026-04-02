@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Floor.h"
+#include "Engine.h"
+#include "ResourceManager.h"
 
 AFloor::AFloor(const FVector2D InLocation, int InColorR, int InColorG, int InColorB, const char InMesh, const int InZOrder)
 {
@@ -10,7 +12,10 @@ AFloor::AFloor(const FVector2D InLocation, int InColorR, int InColorG, int InCol
 	ColorG = InColorG;
 	ColorB = InColorB;
 
-	Load("Data/floor.bmp", 255, 0, 255, {0, 0}, {64, 64});
+	MyResource = GEngine->GetResourceManager()->LoadTexture("Data/floor.bmp");
+
+	TextureLocation = { 0, 0 };
+	TextureSize = { MyResource->Image->w, MyResource->Image->h };
 }
 
 AFloor::~AFloor()

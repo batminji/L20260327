@@ -18,8 +18,6 @@ public:
 
 	void AddActorLocalOffset(const FVector2D& Offset);
 
-	virtual void Load(std::string FileName, int InColorR = 255, int InColorG = 0, int InColorB = 255, FVector2D InTextureLocation = {0, 0}, FVector2D InTextureSize = {0, 0});
-
 	inline const int GetZOrder() const
 	{
 		return ZOrder;
@@ -34,8 +32,7 @@ protected:
 	int ZOrder;
 	char Mesh;
 
-	SDL_Surface* Image;
-	SDL_Texture* Texture;
+	Resource* MyResource;
 
 	FVector2D TextureLocation;
 	FVector2D TextureSize;

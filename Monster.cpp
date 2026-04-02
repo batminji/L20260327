@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Monster.h"
 #include "Engine.h"
+#include "ResourceManager.h"
 
 AMonster::AMonster(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB, const char InMesh, const int InZOrder)
 {
@@ -13,7 +14,10 @@ AMonster::AMonster(const FVector2D& InLocation, int InColorR, int InColorG, int 
 
 	Direction = rand() % 4;
 
-	Load("Data/monster.bmp", 255, 255, 255, {0, 0}, {64, 64});
+	MyResource = GEngine->GetResourceManager()->LoadTexture("Data/monster.bmp", true, 255, 255, 255);
+
+	TextureLocation = { 0, 0 };
+	TextureSize = { MyResource->Image->w, MyResource->Image->h };
 }
 
 AMonster::~AMonster()

@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <algorithm>
 #include <random>
+#include <map>
 
 // SDL
 #include "SDL.h"
@@ -33,3 +34,9 @@
 //std::uniform_int_distribution<int> uidR(0, 255);
 //std::uniform_int_distribution<int> uidG(0, 255);
 //std::uniform_int_distribution<int> uidB(0, 255);
+
+struct Resource
+{
+	SDL_Surface* Image;
+	SDL_Texture* Texture;
+};
