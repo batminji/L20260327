@@ -37,6 +37,21 @@ public:
 		return nullptr;
 	}
 
+	template<typename T>
+	std::vector<AActor*> GetActorsOfClass()
+	{
+		std::vector<AActor*> TempActors{};
+		for (auto Actor : Actors)
+		{
+			T* Target = dynamic_cast<T*>(Actor);
+			if (Target)
+			{
+				TempActors.emplace_back(Target);
+			}
+		}
+		return TempActors;
+	}
+
 	inline std::vector<AActor*>& GetAllActorsOfClass()
 	{
 		return Actors;
