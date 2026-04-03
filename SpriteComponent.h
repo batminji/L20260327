@@ -18,8 +18,6 @@ public:
 	FVector2D Location;
 
 	Resource* MyResource;
-	 
-	FVector2D TextureLocation;
 	FVector2D TextureSize;
 };
 

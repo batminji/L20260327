@@ -3,21 +3,21 @@
 #include "Engine.h"
 #include "ResourceManager.h"
 #include "GameplayStatics.h"
-#include "SpriteComponent.h"
+#include "SpriteAnimationComponent.h"
 
 APlayer::APlayer(const FVector2D& InLocation, const char InMesh)
 {
 	Location = InLocation;
 	Mesh = InMesh;
 
-	SpriteComponent = CreateDefaultSubObject<USpriteComponent>("Sprite");
+	SpriteAnimationComponent = CreateDefaultSubObject<USpriteAnimationComponent>("Sprite");
 
 	Resource* MyResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
-	SpriteComponent->MyResource = MyResource;
+	SpriteAnimationComponent->MyResource = MyResource;
 
-	SpriteComponent->TextureLocation = { 0, 0 };
-	SpriteComponent->TextureSize = { MyResource->Image->w / 5, MyResource->Image->h / 5};
-	SpriteComponent->ZOrder = 100;
+	SpriteAnimationComponent->TextureLocation = { 0, 0 };
+	SpriteAnimationComponent->TextureSize = { MyResource->Image->w / 5, MyResource->Image->h / 5};
+	SpriteAnimationComponent->ZOrder = 100;
 }
 
 APlayer::~APlayer()

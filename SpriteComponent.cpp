@@ -21,5 +21,5 @@ void USpriteComponent::Tick()
 
 void USpriteComponent::Render()
 {
-	GEngine->Render(Owner->GetActorLocation(), MyResource->Texture, Owner->GetActorTextureLocation(), TextureSize);
+	GEngine->Render(Owner->GetActorLocation(), MyResource->Texture, {0, 0}, TextureSize);
 }
