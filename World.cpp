@@ -2,6 +2,7 @@
 #include "World.h"
 #include "Engine.h"
 #include "Actor.h"
+#include "GameMode.h"
 
 #include "Player.h"
 #include "Monster.h"
@@ -29,6 +30,8 @@ UWorld::~UWorld()
 
 void UWorld::Load(const std::string MapName)
 {
+	Actors.emplace_back(new AGameMode());
+
 	std::ifstream MapStream(MapName);
 
 	if (!MapStream.is_open())

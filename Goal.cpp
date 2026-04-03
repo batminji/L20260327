@@ -9,6 +9,7 @@ AGoal::AGoal(const FVector2D& InLocation, const char InMesh)
 	Location = InLocation;
 	Mesh = InMesh;
 
+	// Sprite Component
 	SpriteComponent = CreateDefaultSubObject<USpriteComponent>("Sprite");
 
 	Resource* MyResource = GEngine->GetResourceManager()->LoadTexture("Data/Goal.bmp", true, 255, 255, 255);
@@ -17,6 +18,7 @@ AGoal::AGoal(const FVector2D& InLocation, const char InMesh)
 	SpriteComponent->TextureSize = { MyResource->Image->w, MyResource->Image->h };
 
 	SpriteComponent->ZOrder = 10;
+
 }
 
 AGoal::~AGoal()

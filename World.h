@@ -23,6 +23,20 @@ public:
 	void Tick();
 	void Render();
 
+	template<typename T>
+	AActor* GetActorOfClass()
+	{
+		for (auto Actor : Actors)
+		{
+			T* Target = dynamic_cast<T*>(Actor);
+			if (Target)
+			{
+				return Target;
+			}
+		}
+		return nullptr;
+	}
+
 	inline std::vector<AActor*>& GetAllActorsOfClass()
 	{
 		return Actors;
