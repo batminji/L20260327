@@ -25,6 +25,7 @@ void UEngine::Init()
 
 	bIsRunning = true;
 	World = new UWorld();
+	TileSize = World->GetTileSize();
 
 	InitBuffer();
 }
@@ -103,8 +104,6 @@ void UEngine::Render(const FVector2D& InLocation, const char InMesh)
 
 void UEngine::Render(const FVector2D& InLocation, int InColorR, int InColorG, int InColorB)
 {
-	int TileSize = 50;
-
 	SDL_SetRenderDrawColor(Renderer, InColorR, InColorG, InColorB, 255);
 	SDL_RenderDrawPoint(Renderer, InLocation.X, InLocation.Y);
 
@@ -114,7 +113,6 @@ void UEngine::Render(const FVector2D& InLocation, int InColorR, int InColorG, in
 
 void UEngine::Render(const FVector2D& InLocation, SDL_Texture* InTexture, FVector2D& InTextureLocation, FVector2D& InTextureSize)
 {
-	int TileSize = 50;
 	SDL_Rect SRCRect = { InTextureLocation.X * InTextureSize.X, InTextureLocation.Y * InTextureSize.Y, InTextureSize.X, InTextureSize.Y };
 	SDL_Rect DSTRect = { InLocation.X * TileSize, InLocation.Y * TileSize, TileSize, TileSize };
 	SDL_RenderCopy(Renderer, InTexture, &SRCRect, &DSTRect);

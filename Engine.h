@@ -81,6 +81,7 @@ protected:
 	bool bIsRunning : 1;
 
 	UWorld* World;
+	int TileSize;
 
 	SDL_Window* Window;
 	SDL_Renderer* Renderer;

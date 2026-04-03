@@ -15,7 +15,7 @@ public:
 	AActor* SpawnActor()
 	{
 		AActor* NewActor = new ClassName;
-		Actors.push_back(NewActor);
+		Actors.emplace_back(NewActor);
 
 		return NewActor;
 	}
@@ -28,7 +28,14 @@ public:
 		return Actors;
 	}
 
+	inline const int GetTileSize() const
+	{
+		return TileSize;
+	}
+
 protected:
+	int TileSize = 50;
+
 	const FVector2D& GetMaxMapSize() const;
 	void SaveActors(std::vector<std::string>& MapBuffer);
 	void SortActors();

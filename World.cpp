@@ -74,7 +74,7 @@ void UWorld::Load(const std::string MapName)
 	MaxY = Y;
 
 	// Window Size 동적으로 변경
-	SDL_SetWindowSize(GEngine->GetWindow(), MaxX * 50, MaxY * 50);
+	SDL_SetWindowSize(GEngine->GetWindow(), MaxX * TileSize, MaxY * TileSize);
 
 	MapStream.close();
 
