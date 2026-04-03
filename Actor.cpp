@@ -33,7 +33,6 @@ void AActor::Tick()
 	}
 }
 
-
 void AActor::SetActorLocation(const FVector2D& NewLocation)
 {
 	Location = NewLocation;
@@ -53,4 +52,10 @@ void AActor::ReceiveHit(AActor* Other)
 void AActor::ProcessBeginOverlap(class AActor* OtherActor)
 {
 
+}
+
+
+UWorld* AActor::GetWorld()
+{
+	return World;
 }

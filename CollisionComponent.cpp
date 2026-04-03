@@ -19,7 +19,7 @@ void UCollisionComponent::BeginPlay()
 
 void UCollisionComponent::Tick()
 {
-	for (auto Other : GEngine->GetWorld()->GetAllActorsOfClass())
+	for (auto Other : Owner->GetWorld()->GetAllActorsOfClass())
 	{
 		if (Other == this->Owner)
 		{

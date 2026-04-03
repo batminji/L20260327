@@ -33,7 +33,22 @@ public:
 	virtual void ReceiveHit(AActor* Other);
 	virtual void ProcessBeginOverlap(class AActor* OtherActor);
 
+	class UWorld* GetWorld();
+
+	void SetWorld(class UWorld* InWorld)
+	{
+		World = InWorld;
+	}
+
+	inline const std::string& GetName() const
+	{
+		return Name;
+	}
+
 protected:
+	class UWorld* World;
+	std::string Name;
+
 	FVector2D Location;
 	FVector2D TextureLocation;
 

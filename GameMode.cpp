@@ -20,7 +20,7 @@ void AGameMode::Tick()
 {
 	__super::Tick();
 
-	std::vector<AActor*> TempPlayers = GEngine->GetWorld()->GetActorsOfClass<APlayer>();
+	/*std::vector<AActor*> TempPlayers = GEngine->GetWorld()->GetActorsOfClass<APlayer>();
 	std::vector<AActor*> TempMonsters = GEngine->GetWorld()->GetActorsOfClass<AMonster>();
 	std::vector<AActor*> TempGoals = GEngine->GetWorld()->GetActorsOfClass<AGoal>();
 
@@ -83,5 +83,5 @@ void AGameMode::Tick()
 				return;
 			}
 		}
-	}
+	}*/
 }

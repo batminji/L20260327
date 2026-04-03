@@ -14,7 +14,7 @@ ACharacter::~ACharacter()
 
 bool ACharacter::PredictMove(FVector2D InLocation)
 {
-	for (auto Other : GEngine->GetWorld()->GetAllActorsOfClass())
+	for (auto Other : GetWorld()->GetAllActorsOfClass())
 	{
 		if (Other == this)
 		{

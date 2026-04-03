@@ -14,6 +14,7 @@ APlayer::APlayer(const FVector2D& InLocation, const char InMesh)
 {
 	Location = InLocation;
 	Mesh = InMesh;
+	Name = "Player";
 
 	// Sprite Animation Component
 	SpriteAnimationComponent = CreateDefaultSubObject<USpriteAnimationComponent>("Sprite");

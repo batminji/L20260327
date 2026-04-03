@@ -9,6 +9,7 @@ AGoal::AGoal(const FVector2D& InLocation, const char InMesh)
 {
 	Location = InLocation;
 	Mesh = InMesh;
+	Name = "Goal";
 
 	// Sprite Component
 	SpriteComponent = CreateDefaultSubObject<USpriteComponent>("Sprite");

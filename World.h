@@ -19,6 +19,7 @@ public:
 	{
 		AActor* NewActor = new ClassName;
 		Actors.emplace_back(NewActor);
+		NewActor->SetWorld(this);
 
 		return NewActor;
 	}
