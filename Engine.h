@@ -91,7 +91,10 @@ protected:
 	SDL_Renderer* Renderer;
 	SDL_Event Event;
 	const Uint8* State;
+
 	TTF_Font* Font;
+	Mix_Music* BGM;
+
 	std::string PrintString = "Hello World";
 
 	Uint32 LastTime;

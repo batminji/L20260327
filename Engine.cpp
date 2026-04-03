@@ -16,7 +16,7 @@ UEngine::~UEngine()
 void UEngine::Init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	TTF_Init(); // TTF
+	TTF_Init();
 	Window = SDL_CreateWindow("SDL Engine", WINDOWX, WINDOWY, WINDOWW, WINDOWH, SDL_WINDOW_SHOWN);
 	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_TARGETTEXTURE);
 
@@ -24,6 +24,8 @@ void UEngine::Init()
 
 	Font = TTF_OpenFont("arial.ttf", 24);
 
+	BGM = Mix_LoadMUS("Data/bgm.mp3");
+	Mix_PlayMusic(BGM, -1);
 
 	ResourceManager = new UResourceManager();
 
@@ -38,6 +40,7 @@ void UEngine::Terminate()
 {
 	SDL_DestroyRenderer(Renderer);
 	SDL_DestroyWindow(Window);
+	Mix_FreeMusic(BGM);
 	SDL_Quit();
 
 	delete World;
