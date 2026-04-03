@@ -79,7 +79,7 @@ void APlayer::Tick()
 	if (Offset.X != 0 || Offset.Y != 0)
 	{
 		AddActorLocalOffset(Offset);
-		if (!PredictMovement(Location))
+		if (!PredictMove(Location))
 		{
 			Offset.X = Offset.X * -1;
 			Offset.Y = Offset.Y * -1;
@@ -105,33 +105,4 @@ void APlayer::ReceiveHit(AActor* OtherActor)
 void APlayer::ProcessBeginOverlap(AActor* OtherActor)
 {
 
-}
-
-bool APlayer::PredictMovement(FVector2D InLocation)
-{
-	for (auto Other : GEngine->GetWorld()->GetAllActorsOfClass()) 
-	{
-		if (Other == this)
-		{
-			continue;
-		}
-		for (auto OtherComponent : Other->Components)
-		{
-			UCollisionComponent* OtherCollision = dynamic_cast<UCollisionComponent*>(OtherComponent);
-			if (OtherCollision)
-			{
-				if (OtherCollision->bIsGenerateOverlap && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)
-				{
-					ProcessBeginOverlap(Other);
-					return true;
-				}
-				if (OtherCollision->bIsGenerateHit && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)
-				{
-					ReceiveHit(Other);
-					return false;
-				}
-			}
-		}
-	}
-	return true;
 }

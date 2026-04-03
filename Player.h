@@ -1,10 +1,10 @@
 #pragma once
-#include "Actor.h"
+#include "Character.h"
 
 class USpriteAnimationComponent;
 class UCollisionComponent;
 
-class APlayer : public AActor
+class APlayer : public ACharacter
 {
 public:
 	APlayer(const FVector2D& InLocation = { 0, 0 }, const char InMesh = ' ');
@@ -17,14 +17,11 @@ public:
 	UCollisionComponent* CollisionComponent;
 
 	virtual void ReceiveHit(AActor* OtherActor) override;
-
-	void ProcessBeginOverlap(class AActor* OtherActor);
+	virtual void ProcessBeginOverlap(class AActor* OtherActor) override;
 
 protected:
 	int Direction = 3;
 	float DeltaSeconds = 0.0f;
 	int SpriteIndex = 0;
-
-	bool PredictMovement(FVector2D InLocation); // Movement Component로 만들어야 함
 };
 

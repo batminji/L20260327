@@ -45,3 +45,8 @@ void AActor::ReceiveHit(AActor* Other)
 {
 
 }
+
+void AActor::ProcessBeginOverlap(class AActor* OtherActor)
+{
+
+}

@@ -1,10 +1,10 @@
 #pragma once
-#include "Actor.h"
+#include "Character.h"
 
 class USpriteComponent;
 class UCollisionComponent;
 
-class AMonster : public AActor
+class AMonster : public ACharacter
 {
 public:
 	AMonster(const FVector2D& InLocation = { 0, 0 }, const char InMesh = ' ');
@@ -17,12 +17,10 @@ public:
 
 	virtual void ReceiveHit(AActor* OtherActor) override;
 
-	void ProcessBeginOverlap(AActor* OtherActor);
+	virtual void ProcessBeginOverlap(AActor* OtherActor) override;
 
 protected:
 	int Direction;
 	float DeltaTime;
-
-	bool PredictMovement(FVector2D InLocation);
 };
 

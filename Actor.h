@@ -31,6 +31,7 @@ public:
 	FActorBeginOverlapSignature OnActorBeginOverlap;
 
 	virtual void ReceiveHit(AActor* Other);
+	virtual void ProcessBeginOverlap(class AActor* OtherActor);
 
 protected:
 	FVector2D Location;

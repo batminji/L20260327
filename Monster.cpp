@@ -39,7 +39,7 @@ void AMonster::Tick()
 
 	FVector2D Offset = { 0, 0 };
 
-	if (DeltaTime > 0.5f)
+	if (DeltaTime > 0.1f)
 	{
 		Direction = rand() % 4;
 		if (Direction == 0)
@@ -64,7 +64,7 @@ void AMonster::Tick()
 	if (Offset.X != 0 || Offset.Y != 0)
 	{
 		AddActorLocalOffset(Offset);
-		if (!PredictMovement(Location))
+		if (!PredictMove(Location))
 		{
 			Offset.X = Offset.X * -1;
 			Offset.Y = Offset.Y * -1;
@@ -81,33 +81,4 @@ void AMonster::ReceiveHit(AActor* OtherActor)
 void AMonster::ProcessBeginOverlap(AActor* OtherActor)
 {
 	SDL_Log("Monster Collide Player");
-}
-
-bool AMonster::PredictMovement(FVector2D InLocation)
-{
-	for (auto Other : GEngine->GetWorld()->GetAllActorsOfClass())
-	{
-		if (Other == this)
-		{
-			continue;
-		}
-		for (auto OtherComponent : Other->Components)
-		{
-			UCollisionComponent* OtherCollision = dynamic_cast<UCollisionComponent*>(OtherComponent);
-			if (OtherCollision)
-			{
-				if (OtherCollision->bIsGenerateOverlap && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)
-				{
-					ProcessBeginOverlap(Other);
-					return true;
-				}
-				if (OtherCollision->bIsGenerateHit && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)
-				{
-					ReceiveHit(Other);
-					return false;
-				}
-			}
-		}
-	}
-	return true;
 }
