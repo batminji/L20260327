@@ -111,13 +111,18 @@ bool APlayer::PredictMovement(FVector2D InLocation)
 {
 	for (auto Other : GEngine->GetWorld()->GetAllActorsOfClass()) 
 	{
+		if (Other == this)
+		{
+			continue;
+		}
 		for (auto OtherComponent : Other->Components)
 		{
 			UCollisionComponent* OtherCollision = dynamic_cast<UCollisionComponent*>(OtherComponent);
 			if (OtherCollision)
 			{
-				if (OtherCollision->Owner == this)
+				if (OtherCollision->bIsGenerateOverlap && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)
 				{
+					ProcessBeginOverlap(Other);
 					return true;
 				}
 				if (OtherCollision->bIsGenerateHit && InLocation.X == Other->GetActorLocation().X && InLocation.Y == Other->GetActorLocation().Y)

@@ -23,7 +23,7 @@ AWall::AWall(const FVector2D& InLocation, const char InMesh)
 	// Collision Component
 	CollisionComponent = CreateDefaultSubObject<UCollisionComponent>("Collision");
 	CollisionComponent->bIsGenerateHit = true;
-	CollisionComponent->bIsGenerateOverlap = true;
+	CollisionComponent->bIsGenerateOverlap = false;
 }
 
 AWall::~AWall()
