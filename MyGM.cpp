@@ -16,19 +16,16 @@ void AMyGM::GameOver()
 
 	if (!bGameOver)
 	{
-		GEngine->SetPrintString("Game Over");
 		bGameOver = true;
 	}
 }
 
 void AMyGM::GameComplete()
 {
-	static bool bGameComplte = false;
+	static bool bGameComplete = false;
 
-	if (!bGameComplte)
+	if (!bGameComplete)
 	{
-		GEngine->SetPrintString("Game Complete");
-
-		bGameComplte = true;
+		bGameComplete = true;
 	}
 }

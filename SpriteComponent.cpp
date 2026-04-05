@@ -9,6 +9,7 @@ USpriteComponent::USpriteComponent()
 
 USpriteComponent::~USpriteComponent()
 {
+
 }
 
 void USpriteComponent::BeginPlay()

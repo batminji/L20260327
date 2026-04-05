@@ -37,11 +37,7 @@ public:
 	void Render(const FVector2D& InLocation, const char InMesh);
 	void Render(const FVector2D& InLocation, int R, int G, int B);
 	void Render(const FVector2D& InLocation, SDL_Texture* InTexture, const FVector2D& InTextureLocation, const FVector2D& InTextureSize);
-
-	inline void SetPrintString(std::string InString)
-	{
-		PrintString = InString;
-	}
+	void Render(const FVector2D& InLocation, SDL_Texture* InTextTexture, int InX, int InY);
 
 	void Flip();
 	void TermBuffer();
@@ -92,10 +88,7 @@ protected:
 	SDL_Event Event;
 	const Uint8* State;
 
-	TTF_Font* Font;
 	Mix_Music* BGM;
-
-	std::string PrintString = "Hello World";
 
 	Uint32 LastTime;
 	float DeltaSeconds;

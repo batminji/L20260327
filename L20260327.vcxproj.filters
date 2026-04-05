@@ -93,6 +93,9 @@
     <ClInclude Include="MyGM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -153,6 +156,9 @@
       <Filter>Source Files\Actors</Filter>
     </ClCompile>
     <ClCompile Include="MyGM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -22,8 +22,6 @@ void UEngine::Init()
 
 	State = SDL_GetKeyboardState(NULL);
 
-	Font = TTF_OpenFont("arial.ttf", 24);
-
 	BGM = Mix_LoadMUS("Data/bgm.mp3");
 	Mix_PlayMusic(BGM, -1);
 
@@ -127,6 +125,12 @@ void UEngine::Render(const FVector2D& InLocation, SDL_Texture* InTexture, const 
 	SDL_RenderCopy(Renderer, InTexture, &SRCRect, &DSTRect);
 }
 
+void UEngine::Render(const FVector2D& InLocation, SDL_Texture* InTextTexture, int InX, int InY)
+{
+	SDL_Rect DSTRect = {InLocation.X * TileSize, InLocation.Y * TileSize, InX, InY};
+	SDL_RenderCopy(Renderer, InTextTexture, NULL, &DSTRect);
+}
+
 void UEngine::Flip()
 {
 	// Buffer Flip
@@ -166,14 +170,6 @@ void UEngine::Tick()
 void UEngine::Render()
 {
 	World->Render();
-
-	// Font Ãâ·Â
-	SDL_Color Color = { 255, 0, 255, 255 }; // Èò»ö
-	SDL_Surface* FontSurface = TTF_RenderText_Solid(Font, PrintString.c_str(), Color);
-	SDL_Texture* FontTexture = SDL_CreateTextureFromSurface(Renderer, FontSurface);
-	SDL_Rect textRect = { 200, 0, 20 * PrintString.length(), 50};
-
-	SDL_RenderCopy(Renderer, FontTexture, NULL, &textRect);
 
 	SDL_RenderPresent(Renderer);
 }
