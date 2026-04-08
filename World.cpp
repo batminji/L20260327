@@ -14,6 +14,7 @@
 #include "SpriteComponent.h"
 #include "RenderableComponent.h"
 #include "AudioComponent.h"
+#include "BGActor.h"
 #include "YoudieActor.h"
 
 UWorld::UWorld()
@@ -94,7 +95,10 @@ void UWorld::Load(const std::string MapName)
 	// Window Size 동적으로 변경
 	SDL_SetWindowSize(GEngine->GetWindow(), MaxX * TileSize, MaxY * TileSize);
 
+	// Text Render 추가
 	SpawnActor<AYoudieActor>();
+	SpawnActor<ABGActor>();
+	
 	MapStream.close();
 
 	// SortActors();
