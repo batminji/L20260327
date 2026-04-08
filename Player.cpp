@@ -31,13 +31,6 @@ APlayer::APlayer(const FVector2D& InLocation, const char InMesh)
 	CollisionComponent = CreateDefaultSubObject<UCollisionComponent>("Collision");
 	CollisionComponent->SetbIsGenerateHit(true);
 	CollisionComponent->SetbIsGenerateOverlap(true);
-
-	// Text Component
-	TextComponent = CreateDefaultSubObject<UTextComponent>("Text");
-	TextComponent->SetText("Player 1");
-	TextComponent->SetColor({ 255, 0, 255, 255 });
-	TextComponent->SetOffset({ 0, -1 });;
-	TextComponent->SetZOrder(200);
 }
 
 APlayer::~APlayer()

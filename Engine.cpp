@@ -18,7 +18,7 @@ void UEngine::Init()
 	SDL_Init(SDL_INIT_EVERYTHING);
 	// TTF Init
 	TTF_Init();
-	Font = TTF_OpenFont("/Data/Font_arial.ttf", 32);
+	Font = TTF_OpenFont("./Data/Font_arial.ttf", 32);
 	// BGM Init
 	Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);

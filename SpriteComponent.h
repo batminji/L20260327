@@ -39,7 +39,6 @@ public:
 	}
 
 protected:
-	int ZOrder;
 
 	FVector2D Location;
 

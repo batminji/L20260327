@@ -4,7 +4,7 @@
 #include "Actor.h"
 
 UTextComponent::UTextComponent()
-	: Text("Hello World"), Color({ 255, 255, 255, 255 }), Offset({0, 0})
+	: Text("Hello World"), Color({ 255, 255, 255, 255 })
 {
 	MyResource = new Resource();
 	MyResource->Surface = nullptr;
@@ -40,11 +40,8 @@ void UTextComponent::Tick()
 
 void UTextComponent::Render()
 {
-	if (MyResource && MyResource->Texture)
-	{
-		FVector2D Temp = { Owner->GetActorLocation().X + Offset.X, Owner->GetActorLocation().Y + Offset.Y };
-		GEngine->Render(Temp, MyResource->Texture, MyResource->Surface->w, MyResource->Surface->h);
-	}
+	SDL_Rect DestinationRect{ Owner->GetActorLocation().X, Owner->GetActorLocation().Y, MyResource->Surface->w, MyResource->Surface->h};
+	SDL_RenderCopy(GEngine->GetRenderer(), MyResource->Texture, nullptr, &DestinationRect);
 }
 
 void UTextComponent::SetText(const std::string& InText)

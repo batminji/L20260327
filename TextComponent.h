@@ -19,10 +19,6 @@ public:
 		Color = InColor;
 		UpdateTextResource();
 	}
-	inline void SetOffset(const FVector2D& InOffset)
-	{
-		Offset = InOffset;
-	}
 	inline void SetZOrder(const int InZOrder)
 	{
 		ZOrder = InZOrder;
@@ -31,12 +27,9 @@ public:
 protected:
 	std::string Text;
 	SDL_Color Color;
-	FVector2D Offset;
 
 	Resource* MyResource;
 	void ResetResource();
-
-	int ZOrder;
 
 	void UpdateTextResource();
 };

@@ -17,7 +17,6 @@ public:
 protected:
 	USpriteAnimationComponent* SpriteAnimationComponent;
 	UCollisionComponent* CollisionComponent;
-	UTextComponent* TextComponent;
 
 	virtual void ReceiveHit(AActor* OtherActor) override;
 	virtual void ProcessBeginOverlap(class AActor* OtherActor) override;

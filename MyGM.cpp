@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "MyGM.h"
 #include "Engine.h"
+#include "World.h"
+#include "Component.h"
+#include "YoudieActor.h"
+#include "RenderableComponent.h"
 
 AMyGM::AMyGM()
 {
@@ -16,6 +20,15 @@ void AMyGM::GameOver()
 
 	if (!bGameOver)
 	{
+		AYoudieActor* TextActor = dynamic_cast<AYoudieActor*>(GEngine->GetWorld()->GetActorOfClass<AYoudieActor>());
+		if (TextActor)
+		{
+			IRenderableComponent* RenderComponent = dynamic_cast<IRenderableComponent*>(TextActor->Components[0]);
+			if (RenderComponent)
+			{
+				RenderComponent->bIsVisible = true;
+			}
+		}
 		bGameOver = true;
 	}
 }

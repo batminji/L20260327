@@ -5,6 +5,7 @@
 
 USpriteComponent::USpriteComponent()
 {
+	bIsVisible = true;
 }
 
 USpriteComponent::~USpriteComponent()
