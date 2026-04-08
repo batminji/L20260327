@@ -93,7 +93,7 @@
     <ClInclude Include="MyGM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BGMComponent.h">
+    <ClInclude Include="AudioComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="TextComponent.h">
@@ -167,7 +167,7 @@
     <ClCompile Include="MyGM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BGMComponent.cpp">
+    <ClCompile Include="AudioComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="TextComponent.cpp">

@@ -13,12 +13,12 @@
 #include "Component.h"
 #include "SpriteComponent.h"
 #include "RenderableComponent.h"
-#include "BGMComponent.h"
+#include "AudioComponent.h"
 #include "YoudieActor.h"
 
 UWorld::UWorld()
 {
-	BGMComponent = new UBGMComponent();
+	BGMComponent = new UAudioComponent();
 }
 
 UWorld::~UWorld()
@@ -233,7 +233,7 @@ void UWorld::PlayBGM(const std::string& InPath)
 {
 	if (BGMComponent)
 	{
-		BGMComponent->LoadBGM(InPath);
+		BGMComponent->Load(InPath);
 		BGMComponent->Play(-1);
 	}
 }

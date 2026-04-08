@@ -3,7 +3,7 @@
 class AActor;
 class AGameMode;
 
-class UBGMComponent;
+class UAudioComponent;
 
 class UWorld
 {
@@ -81,6 +81,6 @@ protected:
 
 	std::vector<AActor*> Actors;
 
-	UBGMComponent* BGMComponent;
+	UAudioComponent* BGMComponent;
 };
 

@@ -1,24 +1,21 @@
 #pragma once
 #include "Component.h"
-class UBGMComponent : public UComponent
+class UAudioComponent : public UComponent
 {
 public:
-	UBGMComponent();
-	virtual ~UBGMComponent();
+	UAudioComponent();
+	virtual ~UAudioComponent();
 
 	virtual void BeginPlay() override;
 	virtual void Tick() override;
 
-	void LoadBGM(const std::string& InPath);
+	void Load(const std::string& InFileName);
 
 	void Play(int InLoop = -1);
 	void Stop();
-	void Pause();
-	void Resume();
-
-	void SetVolume(int InVolume);
 
 protected:
+	std::string FileName;
 	Mix_Music* Music;
 };
 
