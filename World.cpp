@@ -19,7 +19,6 @@
 
 UWorld::UWorld()
 {
-	BGMComponent = new UAudioComponent();
 }
 
 UWorld::~UWorld()
@@ -29,12 +28,6 @@ UWorld::~UWorld()
 		delete Actor;
 	}
 	Actors.clear();
-
-	if (BGMComponent)
-	{
-		delete BGMComponent;
-		BGMComponent = nullptr;
-	}
 }
 
 void UWorld::SetGameMode(AGameMode* NewGameMode)
@@ -138,9 +131,6 @@ void UWorld::Load(const std::string MapName)
 			return (FirstRenderComponent->ZOrder < SecondRenderComponent->ZOrder ? 1 : 0);
 		}
 	);
-
-	// BGM
-	PlayBGM("Data/bgm.mp3");
 }
 
 void UWorld::Save(const std::string SaveFileName)
@@ -231,23 +221,6 @@ void UWorld::SortActors()
 	//		// return ((A->GetZOrder() < B->GetZOrder()) ? true : false);
 	//		return 1;
 	//	});
-}
-
-void UWorld::PlayBGM(const std::string& InPath)
-{
-	if (BGMComponent)
-	{
-		BGMComponent->Load(InPath);
-		BGMComponent->Play(-1);
-	}
-}
-
-void UWorld::StopBGM()
-{
-	if (BGMComponent)
-	{
-		BGMComponent->Stop();
-	}
 }
 
 const FVector2D& UWorld::GetMaxMapSize() const

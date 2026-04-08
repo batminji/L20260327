@@ -3,8 +3,6 @@
 class AActor;
 class AGameMode;
 
-class UAudioComponent;
-
 class UWorld
 {
 public:
@@ -69,9 +67,6 @@ public:
 		return TileSize;
 	}
 
-	void PlayBGM(const std::string& InPath);
-	void StopBGM();
-
 protected:
 	int TileSize = 50;
 
@@ -80,7 +75,5 @@ protected:
 	void SortActors();
 
 	std::vector<AActor*> Actors;
-
-	UAudioComponent* BGMComponent;
 };
 
